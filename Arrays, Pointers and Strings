@@ -1,0 +1,248 @@
+STRING
+
+---A string in C is an array of characters terminated by a null character (\0).
+
+char str1[] = "Hello";  // Implicit null character at the end
+char str2[6] = "Hello"; // Specifying size explicitly
+char str3[] = {'H', 'e', 'l', 'l', 'o', '\0'};  // Another way
+
+-------------------------------------------------------------------------------------------
+-- String Input and Output
+
+#include <stdio.h>
+
+int main() {
+    char name[50];
+    printf("Enter your name: ");
+    scanf("%s", name);
+    
+    printf("Hello, %s!\n", name);
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------
+--gets() and puts()
+
+#include <stdio.h>
+int main() {
+    char name[50];
+    printf("Enter your name: ");
+    gets(name);  // Reads a string including spaces
+    puts(name);  // Prints the string
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+--Length of String
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char c[] = "hello world";
+   int length = strlen(c);
+    printf("Length of string is : %d", length); 
+
+}
+
+-------------------------------------------------------------------------------------------------
+-- Coying String
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char c[] = "hello world";
+char d[30];
+strcpy(d,c);
+    printf(" the d is:%s",d); 
+}
+
+----------------------------------------------------------------------------------------------------
+--- Concatenating String
+
+#include <stdio.h>
+# include<string.h>
+int main()
+{
+char a[]= "hello";
+char b[20]= " world";
+strcat(a,b);
+printf("%s",a);
+}
+
+------------------------------------------------------------------------------------------------------------
+-- Comparing String
+
+#include <stdio.h>
+# include<string.h>
+int main()
+{
+char a[]= "hello";
+char b[20]= " world";
+int t= strcmp(a,b);
+printf("%d",t);
+}
+
+-------------------------------------------------------------------------------------------
+--Palindrome
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[50], rev[50];
+    
+    printf("Enter a word: ");
+    scanf("%s", str);
+    
+    strcpy(rev, str);
+    strrev(rev);  // Reverse the string
+
+    if (strcmp(str, rev) == 0)
+        printf("Palindrome Word\n");
+    else
+        printf("Not a Palindrome\n");
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ARRAY
+
+An array is a collection of elements of the same data type stored in contiguous memory locations.
+
+#include <stdio.h>
+int main() {
+    int numbers[5] = {10, 20, 30, 40, 50};
+
+    for (int i = 0; i < 5; i++) {
+        printf("Element %d: %d\n", i, numbers[i]);
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------------------------------
+
+---Storing and Printing marks of Students
+
+#include <stdio.h>
+
+int main() {
+    int marks[5] = {85, 90, 78, 92, 88};  
+
+    printf("Marks of Students:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Student %d: %d\n", i + 1, marks[i]);
+    }
+
+    return 0;
+}
+---------------------------------------------------------------------------------
+Maximum and Minimum
+
+// Finding Maximum and minimum in array
+#include <stdio.h>
+
+int main() {
+    int array[]={2,4,5,7,10};
+    int max= array[0];
+    int min= array[4];
+    int length= sizeof(array)/sizeof(array[0]);
+    for(int i=1;i<length;i++){
+        if(array[i]>max){
+            max=array[i];
+        }
+    }
+    for(int i=4;i>=0;i--){
+        if(array[i]<min){
+            min= array[i];
+        }
+    }
+    printf("Maximum:%d\n", max);
+    printf("Minimum:%d",min);
+ 
+
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+POINTERS 
+
+A pointer is a variable that stores the memory address of another variable
+
+#include <stdio.h>
+int main() {
+    int a = 10;
+    int *ptr = &a;
+
+    printf(" %d\n", a); // value of a
+    printf(" %p\n", &a); // Address of a
+    printf(" %p\n", ptr); // Pointer which holds address of a
+    printf(" %d\n", *ptr); // For Dereferencing // Value at pointer
+
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------
+--Pointer with array
+
+#include <stdio.h>
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int *ptr = arr; // Pointer to first element
+
+    for (int i = 0; i < 5; i++) {
+        printf("Element %d: %d\n", i, *(ptr + i));
+    }
+
+    return 0;
+}
+
+-----------------------------------------------------------------------------------
+-- Swapping using Pointer
+
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    printf("Before Swap: x = %d, y = %d\n", x, y);
+    swap(&x, &y);
+    printf("After Swap: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+----------------------------------------------------------------------------
+-- Displaying Student marks with pointer
+
+#include <stdio.h>
+
+int main() {
+    int marks[5];  // Array to store marks
+    int *ptr = marks;  // Pointer to first element
+
+    printf("Enter the marks of 5 students:\n");
+    
+    for(int i = 0; i < 5; i++) {
+        printf("Student %d: ", i + 1);
+        scanf("%d", &marks[i]);  // Corrected input statement
+    }
+
+    printf("\nStudent Marks:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Student %d: %d\n", i + 1, *(ptr + i));
+    }
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
