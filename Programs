@@ -1,0 +1,400 @@
+Taking Student marks and provide their Average
+
+#include <stdio.h>
+
+int main() {
+    int marks[5];
+    int *ptr = marks; 
+        printf("enter the marks of 5 students:");// Pointer to first element
+   for(int i=0;i<5;i++){
+     scanf("%d",&marks[i]);
+   }
+    printf("Student Marks:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Student %d: %d\n", i + 1, *(ptr + i));
+    }
+    int average;
+    int sum=0;
+for(int i=0;i<5;i++){
+    sum=sum+marks[i];
+}
+printf("sum: %d",sum);
+average= sum/5;
+printf("\naverage:%d",average);
+    return 0;
+}
+
+---------------------------------------------------------------------------------------------------------
+--Grade System
+
+#include <stdio.h>
+
+int main() {
+    int marks[5], total = 0;
+    float percentage;
+    char grade;
+
+    printf("Enter marks of 5 subjects:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &marks[i]);
+        total += marks[i];  
+    }
+
+    percentage = total / 5.0;
+
+    if (percentage >= 90) grade = 'A';
+    else if (percentage >= 80) grade = 'B';
+    else if (percentage >= 70) grade = 'C';
+    else if (percentage >= 60) grade = 'D';
+    else grade = 'F';
+
+    printf("Total Marks: %d\n", total);
+    printf("Percentage: %.2f%%\n", percentage);
+    printf("Grade: %c\n", grade);
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------
+---temperature convertor c to f and vice versa(switch case) ask user to choose to coversion type,print the result
+
+
+#include <stdio.h>
+
+int main() {
+    int caseforconversion;
+    float c;
+    float f;
+    float output=0;
+    printf("Enter the conversion type (c to f) case 1 or (f to c) case 2:");
+scanf("%d",&caseforconversion);
+switch (caseforconversion){
+case 1:
+printf("enter the temperature in celsius (c):");
+scanf("%f",&c);
+output= (9.0/5.0 * c )+ 32.0;
+printf("Output is  %f fahrenheit:", output);
+break;
+
+case 2:
+printf("enter the temperature in fahrenheit (f):");
+scanf("%f",&f);
+output= (5.0/9.0) * (f - 32.0);
+printf("Output is  %f celsius:", output);
+break;
+default:
+printf("invalid input!");
+    return 0;
+}
+}
+
+---------------------------------------------------------------------------
+--- odd even and divisibility, take a input check it is odd or even using ternary operator and check whether it is divisible by 3 and 5
+
+
+#include <stdio.h>
+#include<string.h>
+
+int main() {
+    int n;
+    printf("enter the n:");
+    scanf("%d",&n);
+    char result[10];
+    
+   strcpy(result, (n % 2 == 0) ? "even" : "odd");
+    printf("The n is %s\n",result);
+
+if(n%5==0 && n%3==0){
+    printf("n is divisible by 5 and 3");
+}
+else {
+    printf("It is not divisible by 5 and 3");
+}
+}
+
+------------------------------------------------------------------------
+// Online C compiler to run C program online to havea loan maount as input, calculate principal as 10% of remaining loan amount
+#include <stdio.h>
+
+int main() {
+    float loan_amount;
+    printf("enter the loan amount :");
+    scanf("%f",&loan_amount);
+    int month;
+    month=1;
+ float interest;
+    float monthly_principal;
+    float balance_remaining;
+    
+    monthly_principal= loan_amount* 0.1;//10% of loan amount
+    balance_remaining= loan_amount;//initial condition
+    
+    for(month=1;month<=10;month++){
+        balance_remaining= balance_remaining- monthly_principal;
+        interest=balance_remaining * 0.03; // 3%interest
+       printf("Month: %d, Remaining balance:%f\n", month,balance_remaining) ;
+    }
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------------
+reversing number
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    
+ int sum=0;
+ while(n>0){
+     sum=n%10+sum;
+     n=n/10;
+ }
+ printf("%d",sum);
+}
+
+-------------------------------------------------------------------------------------------
+// Online C compiler to run C program online 1 12 123 124 12345
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+for(int i=1;i<=5; i++){
+    for(int j=1; j<=i;j++){
+        printf("%d",j);
+    }
+    printf("\n");
+}
+
+    return 0;
+}
+
+----------------------------------------------------------------------
+// Online C compiler to run C program online 1 22 33 4444 55555
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+for(int i=1;i<=5; i++){
+    for(int j=1; j<=i;j++){
+        printf("%d",i);
+    }
+    printf("\n");
+}
+
+    return 0;
+}
+
+----------------------------------------------------------------------
+leap year
+
+#include <stdio.h>
+
+int main() {
+  int year;
+printf("enter year:");
+scanf("%d",&year);
+if(year%4==0){printf("leap year");}
+else {printf("not a leap year");}
+    return 0;
+}
+
+#include<stdio.h>
+------------------------------------------------------------------------
+
+
+int main() {
+    // Corrected C code here
+    int n = 5;
+    for(int i = n; i > 0; i--) {
+        // Print leading spaces
+        for(int k = 0; k < n - i; k++) {
+            printf(" ");
+//for case 1, n=5, 0<5-5 false so no space and i=4
+// for i=4,n=5, 0<5-4 is true so print 1 space and i=3
+//  for i=3 , n=5, 0< 5-3 is true so print 2 space
+        }
+        // Print numbers
+   // for i=5 , print 1-5, for i=4, print 1-4,...j<=i
+        for(int j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+output: 12345
+         1234
+          123
+           12
+            1
+--------------------------------------------------------------------
+
+#include<stdio.h>
+int main() {
+    // Write C code here
+for(int i=5;i<=5; i--){
+    for(int j=1; j<=i;j++){
+        printf("%d",j);
+    }
+    printf("\n");
+}
+
+    return 0;
+}
+
+output:
+12345
+1234
+123
+12
+1
+-----------------------------------------------------------------------------------------
+Swutch Case for month name
+
+#include<stdio.h>
+int main(){
+ int month;
+ printf("enter month number:");
+ scanf("%d",&month);
+ switch(month){
+     case 1:
+     printf("January");
+     break;
+       case 2:
+     printf("February");
+     break;
+       case 3:
+     printf("march");
+     break;
+       case 4:
+     printf("april");
+     break;
+       case 5:
+     printf("may");
+     break;
+       case 6:
+     printf("June");
+     break;
+       case 7:
+     printf("July");
+     break;
+       case 8:
+     printf("august");
+     break;
+       case 9:
+     printf("september");
+     break;
+       case 10:
+     printf("october");
+     break;
+       case 11:
+     printf("november");
+     break;
+       case 12:
+     printf("december");
+     break;
+       default:
+     printf("invalid..");
+     break;
+ }      
+}
+----------------------------------------------------------------------
+for checking balance,for withdraw money and  deposit money
+
+#include<stdio.h>
+int main(){
+int input;
+ int new_balance;
+ int updated_balance;
+ int balance=5000;
+ do{
+ printf("               Welcome to ATM service  \n \n1 - for checking balance\n2- for withdraw money\n3- deposit money\n4- exit\n");
+printf("enter input:");
+scanf("%d",&input);
+
+switch(input){
+    case 1:
+    printf("Balance is: %d", balance);
+    break;
+    
+    case 2:
+    int amount;
+    printf("enter the amount to be withdraw:");
+    scanf("%d",&amount);
+    if(amount<=balance){
+         new_balance=balance-amount;
+         printf("the amount withdrawn is %d and the remaining balance is %d",amount,new_balance);
+    } 
+    else{printf("invalid amount");}
+     balance= new_balance;
+     break;
+     
+    case 3:
+    int deposit;
+    printf("enter the money to be deposited:");
+    scanf("%d", &deposit);
+    updated_balance= balance+ deposit;
+    printf("the amount deposited is %d and the updated balance is %d",deposit , updated_balance);
+    balance=updated_balance;
+    break;
+    
+    case 4:
+    printf("thank you...hope you have a nice day");
+    break;
+
+    default:
+    printf("invalid..");
+    break;
+
+ }
+} while(input!=4);
+
+}
+-------------------------------------------------------------------------
+ // program for number to word
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+int number;
+printf("enter number from 1-10 to get its word:");
+scanf("%d",&number);
+switch (number){
+    case 1:
+    printf("one");
+    break;
+    case 2:
+    printf("two");
+    break;
+    case 3:
+    printf("three");
+    break;
+    case 4:
+    printf("four");
+    break;
+    case 5:
+    printf("five");
+    break;
+    case 6:
+    printf("six");
+    break;
+    case 7:
+    printf("seven");
+    break;
+    case 8:
+    printf("eight");
+    break;
+    case 9:
+    printf("nine");
+    break;
+    case 10:
+    printf("ten");
+    break;
+    default:
+    printf("invalid input");
+    break;
+}
+    return 0;
+}
